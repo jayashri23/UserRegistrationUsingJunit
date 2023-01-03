@@ -9,6 +9,7 @@ public class UserRegistration {
     private static final String PHONE_PATTERN = "^[1-9]{2}(\\s)[6-9]{1}[0-9]{9}$";
     private static final String PASSWORD_PATTERN ="^[A-Za-z0-9!@#$%^&*]{8,}$";
 
+
     public boolean validateFirstName(String fname) {
         Pattern pattern = Pattern.compile(NAME_PATTERN);
         return pattern.matches(NAME_PATTERN,fname);
