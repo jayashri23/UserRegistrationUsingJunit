@@ -17,18 +17,22 @@ public class UserRegistrationTest {
         boolean lName = userRegistration.validateLastName("Vadde");
         Assert.assertTrue(lName);
     }
-
     @Test
     public void givenEmail_WhenProper_ShouldReturnTrue() {
         UserRegistration userRegistration = new UserRegistration();
         boolean email = userRegistration.validateEmail("abc.xyz@bl.co.in");
         Assert.assertTrue(email);
     }
-
     @Test
     public void givenPhoneNumber_WhenProperWithSpace_ShouldReturnTrue() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean phoneNumber = userRegistration.validatePhoneNumber("91 9822534355");
+        boolean phoneNumber = userRegistration.validatePhoneNumber("91 9825037925");
         Assert.assertTrue(phoneNumber);
+    }
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnTrue(){
+        UserRegistration userRegistration = new UserRegistration();
+        boolean password = userRegistration.validatePassword("cdnrtyui");
+        Assert.assertTrue(password);
     }
 }
