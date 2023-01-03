@@ -5,34 +5,72 @@ import org.junit.jupiter.api.Test;
 
 public class UserRegistrationTest {
     @Test
-    public void givenFirstName_WhenProper_ShouldReturnTrue() {
+    public void givenFirstName_WhenProper_ShouldReturnHappy() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean fName = userRegistration.validateFirstName("Jayashri");
-        Assert.assertTrue(fName);
+        String fName = userRegistration.validateFirstName("Jayashri");
+        Assert.assertEquals("Happy", fName);
     }
 
     @Test
-    public void givenLastName_WhenProper_ShouldReturnTrue() {
+    public void givenFirstName_WhenNotProper_ShouldReturnSad() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean lName = userRegistration.validateLastName("Vadde");
-        Assert.assertTrue(lName);
+        String fName = userRegistration.validateFirstName("jay");
+        Assert.assertEquals("SAD", fName);
     }
+
     @Test
-    public void givenEmail_WhenProper_ShouldReturnTrue() {
+    public void givenLastName_WhenProper_ShouldReturnHappy() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean email = userRegistration.validateEmail("abc.xyz@bl.co.in");
-        Assert.assertTrue(email);
+        String lName = userRegistration.validateLastName("vadde");
+        Assert.assertEquals("Happy", lName);
     }
+
     @Test
-    public void givenPhoneNumber_WhenProperWithSpace_ShouldReturnTrue() {
+    public void givenLastName_WhenNotProper_ShouldReturnSad() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean phoneNumber = userRegistration.validatePhoneNumber("91 9825037925");
-        Assert.assertTrue(phoneNumber);
+        String lName = userRegistration.validateLastName("vad");
+        Assert.assertEquals("SAD", lName);
     }
+
     @Test
-    public void givenPassword_WhenProper_ShouldReturnTrue(){
+    public void givenEmail_WhenProper_ShouldReturnHappy() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean password = userRegistration.validatePassword("jayashri@23");
-        Assert.assertTrue(password);
+        String email = userRegistration.validateEmail("abc.xyz@bl.co.in");
+        Assert.assertEquals("Happy", email);
+    }
+
+    @Test
+    public void givenEmail_WhenNotProper_ShouldReturnSad() {
+        UserRegistration userRegistration = new UserRegistration();
+        String email = userRegistration.validateEmail(".abc@yahoo.com");
+        Assert.assertEquals("SAD", email);
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenProperWithSpace_ShouldReturnHappy() {
+        UserRegistration userRegistration = new UserRegistration();
+        String phoneNumber = userRegistration.validatePhoneNumber("91 7822503725");
+        Assert.assertEquals("Happy", phoneNumber);
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenNotProper_ShouldReturnSad() {
+        UserRegistration userRegistration = new UserRegistration();
+        String phoneNumber = userRegistration.validatePhoneNumber("vad");
+        Assert.assertEquals("SAD", phoneNumber);
+    }
+
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnHappy() {
+        UserRegistration userRegistration = new UserRegistration();
+        String password = userRegistration.validatePassword("jaya23@23");
+        Assert.assertEquals("Happy", password);
+    }
+
+    @Test
+    public void givenPassword_WhenNotProper_ShouldReturnSad() {
+        UserRegistration userRegistration = new UserRegistration();
+        String password = userRegistration.validatePassword("vad");
+        Assert.assertEquals("SAD", password);
     }
 }
